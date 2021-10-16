@@ -1,25 +1,30 @@
 public class EmpWageComp
 {
-	public static void main(String[] args)
-	{
-		//Contants
-		int IS_FULL_TIME = 1;
-		int EMP_RATE_PER_HOUR = 20;
+	//Contants
+		public static final int IS_FULL_TIME = 1;
+		public static final int IS_PART_TIME = 2;
+		public static final int EMP_RATE_PER_HOUR = 20;
 		
+	public static void main(String[] args)
+	{	
 		//Variables
 		int empHrs = 0;
 		int empWage = 0;
 		
 		//Computation
-		double empCheck = Math.floor(Math.random() * 10) % 2;
+		int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 		
-		if (empCheck == IS_FULL_TIME)
+		switch(empCheck)
 		{
-			empHrs = 8;
-		}
-		else
-		{
-			empHrs = 0;
+			case IS_FULL_TIME:
+				empHrs = 8;
+			break;
+			case IS_PART_TIME:
+				empHrs = 4;
+			break;
+			default:
+				empHrs = 0;
+			break;
 		}
 		
 		empWage = empHrs * EMP_RATE_PER_HOUR;
